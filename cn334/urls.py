@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ecommerce import views as ecom_views  # นำเข้า Views จากแอป ecommerce
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),  
+    path("ecommerce/", ecom_views.ecommerce_index_view),  # เส้นทางของ ecommerce
+    path("ecommerce/item/<item_id>", ecom_views.item_view)
+
 ]
+
